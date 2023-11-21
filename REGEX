@@ -1,0 +1,9 @@
+-- redshift --
+SELECT
+  REGEXP_SUBSTR(your_column, '[^/]+/[^/]+/[^/]+/(.*)', 1, 1, 'e') AS result
+FROM your_table
+-- GBQ --
+SELECT
+  REGEXP_EXTRACT(your_column, r'[^/]+/[^/]+/[^/]+/(.*)') AS result
+FROM
+  your_table;
